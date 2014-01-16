@@ -111,7 +111,7 @@ public:
         nDefaultPort = 8433;
         nRPCPort = 8432;
         bnProofOfWorkLimit = CBigNum(~uint256(0) >> 32);
-        nSubsidyHalvingInterval = 210000;
+        nSubsidyHalvingInterval = 500000;
 
         // Build the genesis block. Note that the output of the genesis coinbase cannot
         // be spent as it did not originally exist in the database.

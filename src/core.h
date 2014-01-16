@@ -14,8 +14,8 @@
 
 class CTransaction;
 
-/** No amount larger than this (in satoshi) is valid */
-static const int64_t MAX_MONEY = 21000000 * COIN;
+/** No amount larger than this is valid */
+static const int64_t MAX_MONEY = 50000000 * COIN;
 inline bool MoneyRange(int64_t nValue) { return (nValue >= 0 && nValue <= MAX_MONEY); }
 
 /** An outpoint - a combination of a transaction hash and an index n into its vout */
@@ -150,14 +150,13 @@ public:
 
     bool IsDust(int64_t nMinRelayTxFee) const
     {
-        // "Dust" is defined in terms of CTransaction::nMinRelayTxFee,
-        // which has units satoshis-per-kilobyte.
+        // "Dust" is defined in terms of CTransaction::nMinRelayTxFee
         // If you'd pay more than 1/3 in fees
         // to spend something, then we consider it dust.
         // A typical txout is 34 bytes big, and will
         // need a CTxIn of at least 148 bytes to spend,
-        // so dust is a txout less than 54 uBTC
-        // (5460 satoshis) with default nMinRelayTxFee
+        // so dust is a txout less than 54 uIPC
+        // (5460) with default nMinRelayTxFee
         return ((nValue*1000)/(3*((int)GetSerializeSize(SER_DISK,0)+148)) < nMinRelayTxFee);
     }
 

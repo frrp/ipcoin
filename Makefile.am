@@ -4,12 +4,12 @@ SUBDIRS = src
 
 GZIP_ENV="-9n"
 
-BITCOIND_BIN=$(top_builddir)/src/bitcoind$(EXEEXT)
-BITCOIN_QT_BIN=$(top_builddir)/src/qt/bitcoin-qt$(EXEEXT)
+BITCOIND_BIN=$(top_builddir)/src/ipcoind$(EXEEXT)
+BITCOIN_QT_BIN=$(top_builddir)/src/qt/ipcoin-qt$(EXEEXT)
 BITCOIN_WIN_INSTALLER=$(PACKAGE)-$(PACKAGE_VERSION)-win32-setup$(EXEEXT)
 
-OSX_APP=Bitcoin-Qt.app
-OSX_DMG=Bitcoin-Qt.dmg
+OSX_APP=IPCoin-Qt.app
+OSX_DMG=IPCoin-Qt.dmg
 OSX_DEPLOY_SCRIPT=$(top_srcdir)/contrib/macdeploy/macdeployqtplus
 OSX_FANCY_PLIST=$(top_srcdir)/contrib/macdeploy/fancy.plist
 OSX_INSTALLER_ICONS=$(top_srcdir)/src/qt/res/icons/bitcoin.icns
@@ -43,16 +43,16 @@ distcleancheck:
 $(BITCOIN_WIN_INSTALLER): $(BITCOIND_BIN) $(BITCOIN_QT_BIN)
 	$(MAKE) distdir
 	$(MKDIR_P) $(top_builddir)/release
-	$(INSTALL_STRIP_PROGRAM) $(top_builddir)/src/bitcoind$(EXEEXT) $(top_builddir)/release
-	$(INSTALL_STRIP_PROGRAM) $(top_builddir)/src/qt/bitcoin-qt$(EXEEXT) $(top_builddir)/release
+	$(INSTALL_STRIP_PROGRAM) $(top_builddir)/src/ipcoind$(EXEEXT) $(top_builddir)/release
+	$(INSTALL_STRIP_PROGRAM) $(top_builddir)/src/qt/ipcoin-qt$(EXEEXT) $(top_builddir)/release
 	@test -f $(MAKENSIS) && $(MAKENSIS) $(top_builddir)/share/setup.nsi || \
 	  echo error: could not build $@
 
 $(BITCOIND_BIN):
-	make -C $(top_srcdir)/src bitcoind$(EXEEXT)
+	make -C $(top_srcdir)/src ipcoind$(EXEEXT)
 
 $(BITCOIN_QT_BIN):
-	make -C $(top_srcdir)/src/qt bitcoin-qt$(EXEEXT)
+	make -C $(top_srcdir)/src/qt ipcoin-qt$(EXEEXT)
 
 
 $(OSX_APP)/Contents/PkgInfo:
@@ -119,7 +119,7 @@ test_bitcoin_filtered.info: test_bitcoin.info
 
 block_test.info: test_bitcoin_filtered.info
 	$(MKDIR_P) qa/tmp
-	-@TIMEOUT=15 qa/pull-tester/run-bitcoind-for-test.sh $(JAVA) -jar $(JAVA_COMPARISON_TOOL) qa/tmp/compTool 0
+	-@TIMEOUT=15 qa/pull-tester/run-ipcoind-for-test.sh $(JAVA) -jar $(JAVA_COMPARISON_TOOL) qa/tmp/compTool 0
 	$(LCOV) -c -d $(abs_builddir)/src --t BitcoinJBlockTest -o $@
 	$(LCOV) -z -d $(abs_builddir)/src
 	$(LCOV) -z -d $(abs_builddir)/src/leveldb
@@ -148,7 +148,7 @@ endif
 if USE_COMPARISON_TOOL
 check-local:
 	$(MKDIR_P) qa/tmp
-	@qa/pull-tester/run-bitcoind-for-test.sh $(JAVA) -jar $(JAVA_COMPARISON_TOOL) qa/tmp/compTool $(COMPARISON_TOOL_REORG_TESTS)
+	@qa/pull-tester/run-ipcoind-for-test.sh $(JAVA) -jar $(JAVA_COMPARISON_TOOL) qa/tmp/compTool $(COMPARISON_TOOL_REORG_TESTS)
 endif
 
 EXTRA_DIST = $(top_srcdir)/share/genbuild.sh qa/pull-tester/pull-tester.sh $(WINDOWS_PACKAGING) $(OSX_PACKAGING)

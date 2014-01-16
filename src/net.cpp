@@ -4,7 +4,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "bitcoin-config.h"
+#include "ipcoin-config.h"
 #endif
 
 #include "net.h"
@@ -1122,7 +1122,7 @@ void ThreadMapPort()
             }
         }
 
-        string strDesc = "Bitcoin " + FormatFullVersion();
+        string strDesc = "IPCoin " + FormatFullVersion();
 
         try {
             while (true) {
