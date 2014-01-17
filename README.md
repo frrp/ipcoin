@@ -13,6 +13,31 @@ IPCoin is a cryptocurrency intended for use in transactions concerning intangibl
 
 It is based almost entirely on Bitcoin Core.
 
+Building IPCoin from source
+---------------------------
+
+#Ubuntu
+
+You need (sudo apt-get): libboost-all-dev, libdb++-dev
+
+git clone https://github.com/ipcoin/ipcoin
+cd ipcoin
+./autogen.sh
+./configure --with-incompatible-bdb
+make
+
+Running the IPCoin daemon
+-------------------------
+
+cd src
+./ipcoind (optional: -debug -printtoconsole)
+
+Then from another terminal window you can send RPC commands to it:
+
+./ipcoind getnewaddress
+./ipcoind setgenerate true (start mining)
+./ipcoind getbalance
+
 License
 -------
 
