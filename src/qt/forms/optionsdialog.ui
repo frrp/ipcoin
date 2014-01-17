@@ -472,7 +472,7 @@
   <customwidget>
    <class>BitcoinAmountField</class>
    <extends>QLineEdit</extends>
-   <header>bitcoinamountfield.h</header>
+   <header>ipcoinamountfield.h</header>
   </customwidget>
   <customwidget>
    <class>QValueComboBox</class>
