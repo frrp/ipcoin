@@ -24,7 +24,7 @@ SplashScreen::SplashScreen(const QPixmap &pixmap, Qt::WindowFlags f, bool isTest
     // define text to place
     QString titleText       = tr("IPCoin");
     QString versionText     = QString("Version %1").arg(QString::fromStdString(FormatFullVersion()));
-    QString copyrightText   = "Intangible Currency for Intangible Assets";
+    QString copyrightText   = "Intangible Currency";
     QString testnetAddText  = QString(tr("[testnet]")); // define text to place as single text object
 
     QString font            = "Arial";
