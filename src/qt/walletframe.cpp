@@ -4,7 +4,7 @@
 
 #include "walletframe.h"
 
-#include "bitcoingui.h"
+#include "ipcoingui.h"
 #include "walletview.h"
 
 #include <cstdio>

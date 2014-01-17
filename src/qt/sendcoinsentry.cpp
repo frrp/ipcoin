@@ -28,13 +28,13 @@ SendCoinsEntry::SendCoinsEntry(QWidget *parent) :
 #endif
 #if QT_VERSION >= 0x040700
     ui->addAsLabel->setPlaceholderText(tr("Enter a label for this address to add it to your address book"));
-    ui->payTo->setPlaceholderText(tr("Enter a Bitcoin address (e.g. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)"));
+    ui->payTo->setPlaceholderText(tr("Enter an IPCfoin address (e.g. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)"));
 #endif
     setFocusProxy(ui->payTo);
 
-    // normal bitcoin address field
+    // normal ipcoin address field
     GUIUtil::setupAddressWidget(ui->payTo, this);
-    // just a label for displaying bitcoin address(es)
+    // just a label for displaying ipcoin address(es)
     ui->payTo_is->setFont(GUIUtil::bitcoinAddressFont());
 }
 

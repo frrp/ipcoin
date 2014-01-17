@@ -6,7 +6,7 @@
 #include "ui_sendcoinsdialog.h"
 
 #include "addresstablemodel.h"
-#include "bitcoinunits.h"
+#include "ipcoinunits.h"
 #include "coincontroldialog.h"
 #include "guiutil.h"
 #include "optionsmodel.h"
@@ -34,7 +34,7 @@ SendCoinsDialog::SendCoinsDialog(QWidget *parent) :
     ui->sendButton->setIcon(QIcon());
 #endif
 #if QT_VERSION >= 0x040700
-    ui->lineEditCoinControlChange->setPlaceholderText(tr("Enter a Bitcoin address (e.g. 1NS17iag9jJgTHD1VXjvLCEnZuQ3rJDE9L)"));
+    ui->lineEditCoinControlChange->setPlaceholderText(tr("Enter an IPCoin address (e.g. 1821F7DRm9ewXgcLNX9Cp7wpuRXJGtkFkC)"));
 #endif
 
     addEntry();
@@ -561,7 +561,7 @@ void SendCoinsDialog::coinControlChangeEdited(const QString& text)
         else if (!addr.IsValid()) // Invalid address
         {
             ui->lineEditCoinControlChange->setValid(false);
-            ui->labelCoinControlChangeLabel->setText(tr("Warning: Invalid Bitcoin address"));
+            ui->labelCoinControlChangeLabel->setText(tr("Warning: Invalid IPCoin address"));
         }
         else // Valid address
         {

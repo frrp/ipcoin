@@ -4,7 +4,7 @@
 
 #include "transactiondesc.h"
 
-#include "bitcoinunits.h"
+#include "ipcoinunits.h"
 #include "guiutil.h"
 
 #include "base58.h"

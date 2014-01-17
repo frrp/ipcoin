@@ -6,7 +6,7 @@
 #include "ui_receivecoinsdialog.h"
 
 #include "walletmodel.h"
-#include "bitcoinunits.h"
+#include "ipcoinunits.h"
 #include "addressbookpage.h"
 #include "optionsmodel.h"
 #include "guiutil.h"
