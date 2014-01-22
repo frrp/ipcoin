@@ -26,7 +26,7 @@ const std::string CLIENT_NAME("Amoeba");
 // * then, three options exist for determining CLIENT_BUILD:
 //   * if BUILD_DESC is defined, use that literally (output of git-describe)
 //   * if not, but GIT_COMMIT is defined, use v[maj].[min].[rev].[build]-g[commit]
-//   * otherwise, use v[maj].[min].[rev].[build]-unk
+//   * otherwise, use v[maj].[min].[rev].[build]-amo
 // finally CLIENT_VERSION_SUFFIX is added
 
 // First, include build.h if requested
@@ -44,7 +44,7 @@ const std::string CLIENT_NAME("Amoeba");
     "v" DO_STRINGIZE(maj) "." DO_STRINGIZE(min) "." DO_STRINGIZE(rev) "." DO_STRINGIZE(build) "-g" commit
 
 #define BUILD_DESC_FROM_UNKNOWN(maj,min,rev,build) \
-    "v" DO_STRINGIZE(maj) "." DO_STRINGIZE(min) "." DO_STRINGIZE(rev) "." DO_STRINGIZE(build) "-unk"
+    "v" DO_STRINGIZE(maj) "." DO_STRINGIZE(min) "." DO_STRINGIZE(rev) "." DO_STRINGIZE(build) "-amo"
 
 #ifndef BUILD_DESC
 #    ifdef GIT_COMMIT_ID
