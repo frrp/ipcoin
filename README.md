@@ -30,13 +30,26 @@ Running the IPCoin daemon
 -------------------------
 
 cd src
-./ipcoind (optional: -debug -printtoconsole)
+./ipcoind (optional: -listen -debug -printtoconsole)
 
 Then from another terminal window you can send RPC commands to it:
 
 ./ipcoind getnewaddress
 ./ipcoind setgenerate true (start mining)
 ./ipcoind getbalance
+
+Running the OSS GUI client
+--------------------------
+
+cd src/qt
+./ipcoin-qt
+
+Mining in the OSS GUI client
+----------------------------
+
+Go to Help -> Debug menu
+Open IPCoin RPC Console
+Type "setgenerate true" 
 
 License
 -------
